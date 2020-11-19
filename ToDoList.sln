@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList", "ToDoList\ToDoList.csproj", "{62461A8E-2C03-4765-9236-8B769E4A2F02}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MissionLib", "MissionLib\MissionLib.csproj", "{FECDB1F4-97A0-4014-8DCB-7D294CD687AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{62461A8E-2C03-4765-9236-8B769E4A2F02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62461A8E-2C03-4765-9236-8B769E4A2F02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62461A8E-2C03-4765-9236-8B769E4A2F02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FECDB1F4-97A0-4014-8DCB-7D294CD687AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FECDB1F4-97A0-4014-8DCB-7D294CD687AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FECDB1F4-97A0-4014-8DCB-7D294CD687AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FECDB1F4-97A0-4014-8DCB-7D294CD687AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
