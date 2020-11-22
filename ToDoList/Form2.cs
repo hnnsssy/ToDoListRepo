@@ -18,18 +18,19 @@ namespace ToDoList
         {
             InitializeComponent();
 
-            if(formStyle == FormStyle.Edit)
+            if (formStyle == FormStyle.Edit)
             {
+                Mission = mission;
                 textBox_Title.Text = mission.Title;
-                dateTimePicker_Start.Value = mission.StartDate;
-                dateTimePicker_End.Value = mission.EndDate;
-                Mission.State = mission.State;
+                dateTimePicker_Start.Value = Convert.ToDateTime(mission.StartDate);
+                dateTimePicker_End.Value = Convert.ToDateTime(mission.EndDate);
             }
+            else Mission = new Mission();
         }
 
         private void button_OK_Click(object sender, EventArgs e)
         {
-            Mission = new Mission(textBox_Title.Text, dateTimePicker_Start.Value, dateTimePicker_End.Value, false);
+            Mission = new Mission(textBox_Title.Text, dateTimePicker_Start.Value, dateTimePicker_End.Value, Mission.State);
             this.DialogResult = DialogResult.OK;
         }
     }

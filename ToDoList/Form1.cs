@@ -17,6 +17,7 @@ namespace ToDoList
     {
         Serializer serializer;
         Missions missions;
+        int selectedIndex;
         public Form1()
         {
             InitializeComponent();
@@ -38,7 +39,7 @@ namespace ToDoList
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            serializer.Serialize<List<Mission>>(missions.AllMissions);        
+            serializer.Serialize(missions.AllMissions);
         }
 
         private void FillToDoList()
@@ -56,7 +57,7 @@ namespace ToDoList
         {
             Form2 form2 = new Form2(FormStyle.Add, null);
             form2.ShowDialog();
-            if(form2.DialogResult == DialogResult.OK)
+            if (form2.DialogResult == DialogResult.OK)
             {
                 missions.AddMission(form2.Mission);
                 FillToDoList();
@@ -65,7 +66,12 @@ namespace ToDoList
 
         private void toDoList_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (toDoList.SelectedItem != null)
+            {
+                label_StartDt.Text = $"Start Date: {(toDoList.SelectedItem as Mission).StartDate}";
+                label_EndDt.Text = $"End Date:  {(toDoList.SelectedItem as Mission).EndDate}";
+                selectedIndex = toDoList.SelectedIndex;
+            }
         }
 
         private void toDoList_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -78,13 +84,25 @@ namespace ToDoList
 
         private void button_Edit_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2(FormStyle.Edit, toDoList.CheckedItems[0] as Mission);
+            Form2 form2 = new Form2(FormStyle.Edit, toDoList.SelectedItem as Mission);
+            selectedIndex = toDoList.SelectedIndex;
             form2.ShowDialog();
             if (form2.DialogResult == DialogResult.OK)
             {
                 missions.UpdateMission(toDoList.SelectedIndex, form2.Mission);
                 FillToDoList();
             }
+
+            toDoList.SelectedIndex = selectedIndex;
+        }
+
+        private void button_Remove_Click(object sender, EventArgs e)
+        {
+            missions.RemoveMission(toDoList.SelectedItem as Mission);
+            toDoList.Items.RemoveAt(selectedIndex);
+
+            label_StartDt.Text = $"Start Date: ";
+            label_EndDt.Text = $"End Date: ";
         }
     }
 }

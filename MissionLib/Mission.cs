@@ -13,15 +13,15 @@ namespace MissionLib
     public class Mission
     {
         public string Title { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
         public bool State { get; set; }
 
-        public Mission(string title, DateTime startDate, DateTime endDate, bool state) 
+        public Mission(string title, DateTime startDate, DateTime endDate, bool state)
         {
             Title = title;
-            StartDate = startDate;
-            EndDate = endDate;
+            StartDate = startDate.ToString("dd.MM.yyyy");
+            EndDate = endDate.ToString("dd.MM.yyyy");
             State = state;
         }
         public Mission() { }
@@ -61,27 +61,6 @@ namespace MissionLib
         public void UpdateMission(int index, Mission mission)
         {
             missions[index] = mission;
-        }
-    }
-
-    public class Serializer
-    {
-        public T Deserialize<T>() where T : class
-        {
-            XmlSerializer ser = new XmlSerializer(typeof(T));
-
-            using (Stream stream = File.Open("missions.xml", FileMode.Open))
-            {
-                return (T)ser.Deserialize(stream);
-            }
-        }
-        public void Serialize<T>(T ObjectToSerialize)
-        {
-            XmlSerializer xmlSerializer = new XmlSerializer(ObjectToSerialize.GetType());
-            using (FileStream fs = new FileStream("missions.xml", FileMode.OpenOrCreate))
-            {
-                xmlSerializer.Serialize(fs, ObjectToSerialize);
-            }
         }
     }
 }
