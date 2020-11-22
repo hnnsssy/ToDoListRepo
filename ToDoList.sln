@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MissionLib", "MissionLib\Mi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{026E4A2A-5F12-4FF4-B3DF-D255F4F0378E}"
 	ProjectSection(SolutionItems) = preProject
+		Moqup\1.png = Moqup\1.png
+		Moqup\2.png = Moqup\2.png
 		Exam.txt = Exam.txt
 	EndProjectSection
 EndProject
