@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ToDoList
 {
+    /**
+     * @enum Enum for form type
+     */
     public enum FormStyle
     { Add, Edit }
 

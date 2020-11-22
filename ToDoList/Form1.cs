@@ -43,6 +43,9 @@ namespace ToDoList
             serializer.Serialize(missions.AllMissions);
         }
 
+        /**
+         * Method for fill To-Do List
+         */
         private void FillToDoList()
         {
             toDoList.Items.Clear();

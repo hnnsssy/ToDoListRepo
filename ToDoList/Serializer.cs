@@ -8,8 +8,14 @@ using System.Xml.Serialization;
 
 namespace ToDoList
 {
+    /**
+     @class Serializer
+    Class for serialization objects to XML file.
+     */
     public class Serializer
     {
+        /// @param T Object for deserialize
+        /// @return T
         public T Deserialize<T>() where T : class
         {
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
@@ -19,6 +25,7 @@ namespace ToDoList
             }
         }
 
+        /// @param T Object for object to serialize
         public void Serialize<T>(T ObjectToSerialize)
         {
             XmlSerializer formatter = new XmlSerializer(ObjectToSerialize.GetType());
