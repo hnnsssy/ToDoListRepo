@@ -16,6 +16,7 @@ namespace ToDoList
     public partial class Form1 : Form
     {
         Serializer serializer;
+
         Missions missions;
         int selectedIndex;
         public Form1()
